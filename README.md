@@ -3,9 +3,9 @@ Remote access Trojan coded in python (tokengrabber by https://github.com/billyth
 # commands/tools
 
 ++server++
-lhost,rhost,lport | set lhost, rhost and lport
-display | wait for and display incomming connections
-exploit | run the script
+lhost,rhost,lport | set lhost, rhost and lport<br/>
+display | wait for and display incomming connections<br/>
+exploit | run the script<br/>
 
 ++connection++
 steal - command | steal Discord token+info & edge+chrome stored passwords (steal)<br/>
