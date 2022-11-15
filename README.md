@@ -19,4 +19,4 @@ lshots - command | lists all pictures (lshots)<br/>
 # Warning
 
 This tool was made for educational purposes only I am not responible
-for any damage/harm on any devices blablabla.
+for any damage/harm caused on any devices blablabla.
