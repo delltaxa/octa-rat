@@ -15,3 +15,8 @@ recon - command | restore broken shell (recon)<br/>
 view - command | display picture ascii art in terminal (view pics/{imagename})<br/>
 show - command | open picture in a new window (show pics/{imagename})<br/>
 lshots - command | lists all pictures (lshots)<br/>
+
+# Warning
+
+This tool was made for educational purposes only I am not responible
+for any damage/harm on any devices blablabla.
